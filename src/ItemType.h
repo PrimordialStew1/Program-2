@@ -8,3 +8,33 @@
 // Compiler g++
 
 #pragma once
+#include <iostream>
+#include <string>
+
+using std::string;
+
+enum Comp
+{
+    LESS,
+    GREATER,
+    EQUAL,
+    INDETERMINATE
+};
+
+class ItemType
+{
+private:
+    string songTitle = "";
+    int catalogNumber = 0;
+
+    const string DEFAULT_SONG_TITLE = "Crazy";
+
+public:
+    ItemType();
+    ItemType(string p_songTitle, int p_catalogNumber);
+    ~ItemType();
+
+    Comp Compare(ItemType* p_itemType);
+    string GetData(int& p_catalogNumber);
+    void PrintInfo();
+};
